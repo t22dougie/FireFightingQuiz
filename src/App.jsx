@@ -1,4 +1,4 @@
-
+import BAQuizSection from './BAQuizSection.jsx'
 import React, { useMemo, useState } from 'react'
 import { Flame, RotateCcw, GraduationCap, CheckCircle2, XCircle } from 'lucide-react'
 
@@ -1576,18 +1576,26 @@ export default function App() {
           >
             Fire Extinguishers
           </button>
+
           <button
             className={section === 'friday' ? 'section-tab active' : 'section-tab'}
             onClick={() => setSection('friday')}
           >
             Friday Exam
           </button>
+
+          <button
+            className={section === 'ba' ? 'section-tab active' : 'section-tab'}
+            onClick={() => setSection('ba')}
+          >
+            BA
+          </button>
         </div>
       </nav>
 
-      {section === 'extinguishers'
-        ? <FireExtinguishersApp />
-        : <FridayExamApp />}
+      {section === 'extinguishers' && <FireExtinguishersApp />}
+      {section === 'friday' && <FridayExamApp />}
+      {section === 'ba' && <BAQuizSection />}
     </>
   )
 }
